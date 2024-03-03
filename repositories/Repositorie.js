@@ -1,45 +1,38 @@
-import { productInfoModel } from "../models/productModel.js";
+import { productModel } from "../models/productModel.js";
 
 export const getAllProduct = async () => {
-  let allProduct = await productInfoModel.find({});
+  let allProduct = await productModel.find({});
   return allProduct;
 };
 
-export const addProduct = async ({ title, image, description }) => {
-  const productAdded = await productInfoModel.create({
+export const addProduct = async ({ title, image, price, description }) => {
+  const productAdded = await productModel.create({
     title,
     image,
+    price,
     description,
   });
   return productAdded;
 };
 
-export const updateProduct = async ({
-  id,
-  name,
-  age,
-  height,
-  weight,
-  image,
-}) => {
-  const product = await productInfoModel.findById(id);
+export const editProduct = async ({ id, title, price, image, description }) => {
+  const product = await productModel.findById(id);
 
-  product.name = name ?? product.name;
-  product.age = age ?? product.age;
-  product.height = height ?? product.height;
-  product.weight = weight ?? product.weight;
+  product.title = title ?? product.title;
+  product.price = price ?? product.price;
   product.image = image ?? product.image;
+  product.description = description ?? product.description;
 
   await product.save();
   return product;
 };
 
 export const getProductDetail = async (id) => {
-  let productDetail = await productInfoModel.findById(id);
+  let productDetail = await productModel.findById(id);
   return productDetail;
 };
 
 export const deleteProduct = async (id) => {
-  const productDeleted = await productInfoModel.deleteOne({ _id: id });
+  const productDeleted = await productModel.deleteOne({ _id: id });
   return productDeleted;
 };

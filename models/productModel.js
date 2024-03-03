@@ -1,6 +1,6 @@
 import mongoose, { Schema, ObjectId } from "mongoose";
 
-export const productInfoModel = mongoose.model(
+export const productModel = mongoose.model(
   "products",
   new Schema({
     id: { type: ObjectId },
@@ -14,6 +14,10 @@ export const productInfoModel = mongoose.model(
         // Message
         message: "Title must be at least 3 characters",
       },
+    },
+    price: {
+      type: Number,
+      required: true,
     },
     description: {
       type: String,
