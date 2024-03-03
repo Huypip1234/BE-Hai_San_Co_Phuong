@@ -1,10 +1,10 @@
-import * as idolRepository from "../repositories/idolRepositorie.js";
+import * as productRepository from "../repositories/Repositorie.js";
 
-export const getAllIdol = async (req, res) => {
+export const getAllProduct = async (req, res) => {
   try {
-    let data = await idolRepository.getAllIdol();
+    let data = await productRepository.getAllProduct();
     res.status(200).json({
-      message: "Getting all Idol successfully",
+      message: "Getting all product successfully",
       data: data,
     });
   } catch (error) {
@@ -15,41 +15,11 @@ export const getAllIdol = async (req, res) => {
   }
 };
 
-export const insertIdol = async (req, res) => {
+export const addProduct = async (req, res) => {
   try {
-    let data = await idolRepository.insertIdol(req.body);
+    let data = await productRepository.addProduct(req.body);
     res.status(200).json({
-      message: "Insert new Idol Successfully",
-      data: data,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: error.errors.name.message,
-    });
-    console.log("Error cmnr: " + error);
-  }
-};
-
-export const updateIdol = async (req, res) => {
-  try {
-    let data = await idolRepository.updateIdol(req.body);
-    res.status(200).json({
-      message: "Edit Idol Successfully",
-      data: data,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: error.errors.name.message,
-    });
-    console.log("Error cmnr: " + error);
-  }
-};
-
-export const getIdolDetail = async (req, res) => {
-  try {
-    let data = await idolRepository.getIdolDetail(req.params.id);
-    res.status(200).json({
-      message: "Get Idol Detail Successfully",
+      message: "Add new product Successfully",
       data: data,
     });
   } catch (error) {
@@ -60,11 +30,41 @@ export const getIdolDetail = async (req, res) => {
   }
 };
 
-export const deleteIdol = async (req, res) => {
+export const updateProduct = async (req, res) => {
   try {
-    let data = await idolRepository.deleteIdol(req.params.id);
+    let data = await productRepository.updateProduct(req.body);
     res.status(200).json({
-      message: "Delete Idol Successfully",
+      message: "Edit product Successfully",
+      data: data,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.errors.name.message,
+    });
+    console.log("Error cmnr: " + error);
+  }
+};
+
+export const getProductDetail = async (req, res) => {
+  try {
+    let data = await productRepository.getProductDetail(req.params.id);
+    res.status(200).json({
+      message: "Get product Detail Successfully",
+      data: data,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Internal server error!",
+    });
+    console.log("Error cmnr: " + error);
+  }
+};
+
+export const deleteProduct = async (req, res) => {
+  try {
+    let data = await productRepository.deleteProduct(req.params.id);
+    res.status(200).json({
+      message: "Delete product Successfully",
       data: data,
     });
   } catch (error) {

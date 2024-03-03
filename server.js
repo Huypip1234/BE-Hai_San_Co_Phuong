@@ -2,7 +2,7 @@ import express from "express";
 import { config } from "dotenv";
 config();
 import connect from "./database/database.js";
-import idolRouter from "./router/idolRouter.js";
+import productRouter from "./router/productRouter.js";
 import userRouter from "./router/userRouter.js";
 import bodyParser from "body-parser";
 import checkToken from "./authentication/auth.js";
@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/idol", idolRouter);
+app.use("/product", productRouter);
 app.use("/user", userRouter);
 /* End Router */
 
