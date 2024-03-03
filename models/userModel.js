@@ -4,10 +4,6 @@ export const userModel = mongoose.model(
   "users",
   new Schema({
     id: { type: ObjectId },
-    fullName: {
-      type: String,
-      required: true,
-    },
     userName: {
       type: String,
       required: true,

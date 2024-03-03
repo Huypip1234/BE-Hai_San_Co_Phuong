@@ -13,8 +13,7 @@ import jwt from "jsonwebtoken";
 const checkToken = (req, res, next) => {
   // Skip login, register
   if (
-    req.url.toLowerCase() === "/user/login".toLowerCase() ||
-    req.url.toLowerCase() === "/user/register".toLowerCase()
+    req.url.toLowerCase() === "/user/login".toLowerCase()
   ) {
     next();
     return;

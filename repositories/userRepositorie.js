@@ -1,29 +1,5 @@
 import { userModel } from "../models/userModel.js";
-import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-
-export const register = async ({ fullName, userName, password }) => {
-  const existingUser = await userModel.findOne({ userName }).exec();
-  if (!!existingUser) {
-    // !!: cast to bool (to convert null or undefine to false)
-    throw new Error("UserName exits!");
-  }
-  // encode pass: encrypt (module bycrypt)
-  const hashedPassword = await bcrypt.hash(
-    password,
-    parseInt(process.env.SALT_ROUNDS)
-  );
-  const data = await userModel.create({
-    //key and value is the same so just need once
-    fullName,
-    userName,
-    password: hashedPassword,
-  });
-  return {
-    ...data._doc, // or .toJSON() or .toObject()
-    password: "Not show",
-  };
-};
 
 export const login = async ({ userName, password }) => {
   // If found UserName
@@ -31,7 +7,8 @@ export const login = async ({ userName, password }) => {
   if (!!existingUser) {
     // not encrypt password!
     // If match password
-    let isMatch = await bcrypt.compare(password, existingUser.password);
+    // let isMatch = await bcrypt.compare(password, existingUser.password); -> ko dùng vì đã lưu password ko mã hóa
+    let isMatch = password === existingUser.password;
     if (!!isMatch) {
       //Create Json Web Token (JWT)
       let token = jwt.sign(
@@ -41,7 +18,7 @@ export const login = async ({ userName, password }) => {
         },
         process.env.JWT_SECRET,
         {
-          expiresIn: "30 days", // 60 = 1 minute
+          expiresIn: "365d", // 60 = 1 minute
         }
       ); //return string
       return {
