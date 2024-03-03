@@ -5,7 +5,7 @@ export const login = async (req, res) => {
   try {
     let data = await userRepository.login({ userName, password });
     res.status(200).json({
-      message: "Login Successfully",
+      message: "Đăng nhập thành công",
       data: data,
     });
   } catch (error) {

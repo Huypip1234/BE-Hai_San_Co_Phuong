@@ -27,10 +27,10 @@ export const login = async ({ userName, password }) => {
         token: token,
       };
     } else {
-      throw new Error("Wrong UserName or Password");
+      throw new Error("Tài khoản hoặc mật khẩu không đúng!");
     }
   } else {
-    throw new Error("Wrong UserName or Password");
+    throw new Error("Tài khoản hoặc mật khẩu không đúng!");
   }
 };
 
