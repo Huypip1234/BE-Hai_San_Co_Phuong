@@ -13,13 +13,14 @@ import jwt from "jsonwebtoken";
 const checkToken = (req, res, next) => {
   // Skip login, register
   if (
-    req.url.toLowerCase() === "/user/login".toLowerCase()
+    req.url.toLowerCase() === "/user/login".toLowerCase() ||
+    req.url.toLowerCase() === "/product/all".toLowerCase()
   ) {
     next();
     return;
   }
   // Other
-  debugger
+  debugger;
   const token = req.headers?.authorization?.split(" ")[1]; // Tach bear ra
   try {
     let jwtObject = jwt.verify(token, process.env.JWT_SECRET);
