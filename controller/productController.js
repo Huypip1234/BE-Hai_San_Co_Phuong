@@ -19,7 +19,7 @@ export const addProduct = async (req, res) => {
   try {
     let data = await productRepository.addProduct(req.body);
     res.status(200).json({
-      message: "Add new product Successfully",
+      message: "Thêm mặt hàng mới thành công",
       data: data,
     });
   } catch (error) {
@@ -64,7 +64,7 @@ export const deleteProduct = async (req, res) => {
   try {
     let data = await productRepository.deleteProduct(req.params.id);
     res.status(200).json({
-      message: "Delete product Successfully",
+      message: "Xóa mặt hàng thành công",
       data: data,
     });
   } catch (error) {
