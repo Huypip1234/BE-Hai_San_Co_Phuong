@@ -34,7 +34,7 @@ export const editProduct = async (req, res) => {
   try {
     let data = await productRepository.editProduct(req.body);
     res.status(200).json({
-      message: "Edit product Successfully",
+      message: "Sửa mặt hàng thành công",
       data: data,
     });
   } catch (error) {
