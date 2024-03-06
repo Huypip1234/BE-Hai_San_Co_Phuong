@@ -24,7 +24,7 @@ const checkToken = (req, res, next) => {
   debugger;
   const token = req.headers?.authorization?.split(" ")[1]; // Tach bear ra
   try {
-    let jwtObject = jwt.verify(token, process.env.JWT_SECRET);
+    let jwtObject = jwt.verify(token, "This is a secret key of JWT");
 
     const isExpired = Date.now() >= jwtObject.exp * 1000;
     // Date.now(): time count from a long time before to now (eg: 121231241230)

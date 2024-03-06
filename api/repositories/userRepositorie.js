@@ -16,7 +16,7 @@ export const login = async ({ userName, password }) => {
         {
           data: existingUser,
         },
-        process.env.JWT_SECRET,
+        "This is a secret key of JWT",
         {
           expiresIn: "365d", // 60 = 1 minute
         }

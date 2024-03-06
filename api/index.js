@@ -9,7 +9,6 @@ import checkToken from "./authentication/auth.js";
 import cors from "cors";
 
 const app = express();
-const port = process.env.PORT ?? 3000;
 
 // Fixed Payload too large (must put on the top before express.json())
 app.use(bodyParser.json({ limit: "10mb" }));
@@ -45,7 +44,7 @@ app.use("/product", productRouter);
 app.use("/user", userRouter);
 /* End Router */
 
-app.listen(port, async () => {
+app.listen(3000, async () => {
   await connect();
   console.log(`Listening on port: http://localhost:${port}`);
 });
