@@ -37,6 +37,10 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/hello", (req, res) => {
+  res.send("Hello");
+});
+
 app.use("/product", productRouter);
 app.use("/user", userRouter);
 /* End Router */
