@@ -2,10 +2,10 @@
   "name": "hai_san_co_phuong",
   "version": "1.0.0",
   "description": "first CURD NodeJS app",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "debug": "node inspect server.js"
+    "dev": "nodemon index.js",
+    "debug": "node inspect index.js"
   },
   "author": "Huy dep trai",
   "license": "MIT",
