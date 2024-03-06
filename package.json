@@ -4,7 +4,7 @@
   "description": "first CURD NodeJS app",
   "main": "index.js",
   "engines": {
-    "node": "20.x"
+    "node": "18.x"
   },
   "scripts": {
     "start": "node api/index.js",
