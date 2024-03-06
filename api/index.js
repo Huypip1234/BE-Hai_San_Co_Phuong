@@ -44,7 +44,7 @@ app.use("/product", productRouter);
 app.use("/user", userRouter);
 /* End Router */
 
-app.listen(3000, async () => {
+app.listen(3003, async () => {
   await connect();
-  console.log(`Listening on port: http://localhost:${port}`);
+  console.log(`Listening on port: http://localhost:3000`);
 });
