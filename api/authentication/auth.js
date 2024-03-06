@@ -14,7 +14,8 @@ const checkToken = (req, res, next) => {
   // Skip login, register
   if (
     req.url.toLowerCase() === "/user/login".toLowerCase() ||
-    req.url.toLowerCase() === "/product/all".toLowerCase()
+    req.url.toLowerCase() === "/product/all".toLowerCase() ||
+    req.url.toLowerCase() === "/hello".toLowerCase()
   ) {
     next();
     return;
