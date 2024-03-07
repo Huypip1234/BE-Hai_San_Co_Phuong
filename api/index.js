@@ -46,5 +46,5 @@ app.use("/user", userRouter);
 
 app.listen(3003, async () => {
   await connect();
-  console.log(`Listening on port: http://localhost:3000`);
+  console.log(`Listening on port: http://localhost:3003`);
 });

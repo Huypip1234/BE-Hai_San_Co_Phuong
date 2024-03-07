@@ -15,7 +15,8 @@ const checkToken = (req, res, next) => {
   if (
     req.url.toLowerCase() === "/user/login".toLowerCase() ||
     req.url.toLowerCase() === "/product/all".toLowerCase() ||
-    req.url.toLowerCase() === "/hello".toLowerCase()
+    req.url.toLowerCase() === "/hello".toLowerCase() ||
+    req.url.toLowerCase() === "/".toLowerCase()
   ) {
     next();
     return;
