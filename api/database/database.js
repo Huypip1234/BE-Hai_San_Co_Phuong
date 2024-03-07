@@ -4,7 +4,7 @@ const connect = async (req, res) => {
   try {
     console.log("Connecting...");
     let connection = await mongoose.connect(
-      "mongodb+srv://huydeptrai:14120042003bB@cluster0.hy9v3jy.mongodb.net/haisancophuong?retryWrites=true&w=majority"
+      "mongodb+srv://vercel-admin-user:14120042003bB@cluster0.hy9v3jy.mongodb.net/haisancophuong?retryWrites=true&w=majority"
     );
     console.log("Connected to database!");
     return connection; //return void
