@@ -16,15 +16,15 @@ export const addProduct = async ({ title, image, price, description }) => {
 };
 
 export const editProduct = async ({ id, title, price, image, description }) => {
-  const product = await productModel.findById(id);
+  /* const product = await productModel.findById(id);
 
   product.title = title ?? product.title;
   product.price = price ?? product.price;
   product.image = image ?? product.image;
   product.description = description ?? product.description;
 
-  await product.save();
-  return product;
+  await product.save(); */
+  return "saddsa";
 };
 
 export const getProductDetail = async (id) => {
