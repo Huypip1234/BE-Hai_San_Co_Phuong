@@ -4,7 +4,10 @@ export const productModel = mongoose.model(
   "products",
   new Schema({
     id: { type: ObjectId },
-    image: String,
+    image: {
+      url: String,
+      public_id: String,
+    },
     title: {
       type: String, //type
       required: true, //required
