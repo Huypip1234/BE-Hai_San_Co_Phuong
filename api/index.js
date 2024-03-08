@@ -4,6 +4,7 @@ config();
 import connect from "./database/database.js";
 import productRouter from "./router/productRouter.js";
 import userRouter from "./router/userRouter.js";
+import imageRouter from "./router/imageRouter.js";
 import bodyParser from "body-parser";
 import checkToken from "./authentication/auth.js";
 import cors from "cors";
@@ -36,12 +37,9 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/hello", (req, res) => {
-  res.send("Hello");
-});
-
 app.use("/product", productRouter);
 app.use("/user", userRouter);
+app.use("/images", imageRouter);
 /* End Router */
 
 app.listen(3003, async () => {
